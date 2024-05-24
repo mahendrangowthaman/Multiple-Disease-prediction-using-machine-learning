@@ -5,16 +5,16 @@ import pickle
 import streamlit as st
 from streamlit_option_menu import option_menu
 
-# Set page configuration
+### Set page configuration
 st.set_page_config(page_title="Health Assistant",
                    layout="wide",
                    page_icon="🧑‍⚕️")
 
     
-# getting the working directory of the main.py
+### getting the working directory of the main.py
 working_dir = os.path.dirname(os.path.abspath(__file__))
 
-# loading the saved models
+### loading the saved models
 
 diabetes_model = pickle.load(open(f'{working_dir}/saved_models/diabetes_model.sav', 'rb'))
 
@@ -22,7 +22,7 @@ heart_disease_model = pickle.load(open(f'{working_dir}/saved_models/heart_diseas
 
 parkinsons_model = pickle.load(open(f'{working_dir}/saved_models/parkinsons_model.sav', 'rb'))
 
-# sidebar for navigation
+### sidebar for navigation
 with st.sidebar:
     selected = option_menu('Multiple Disease Prediction System',
 
@@ -34,7 +34,7 @@ with st.sidebar:
                            default_index=0)
 
 
-# Diabetes Prediction Page
+### Diabetes Prediction Page
 if selected == 'Diabetes Prediction':
 
     # page title
@@ -89,7 +89,7 @@ if selected == 'Diabetes Prediction':
 
     st.success(diab_diagnosis)
 
-# Heart Disease Prediction Page
+### Heart Disease Prediction Page
 if selected == 'Heart Disease Prediction':
 
     # page title
@@ -156,7 +156,7 @@ if selected == 'Heart Disease Prediction':
 
     st.success(heart_diagnosis)
 
-# Parkinson's Prediction Page
+### Parkinson's Prediction Page
 if selected == "Parkinsons Prediction":
 
     # page title
