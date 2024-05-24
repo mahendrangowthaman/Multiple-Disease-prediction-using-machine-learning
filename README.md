@@ -1,1 +1,1 @@
-# project_1
+# Multiple Disease prediction
